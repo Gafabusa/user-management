@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Data;
+using System.Web.Services.Protocols;
 using System.Web.UI;
 
 namespace UserForms.Login
@@ -18,19 +20,38 @@ namespace UserForms.Login
         {
             try
             {
-                // Add your login logic here
                 string email = txtEmail.Text.Trim();
                 string password = txtPassword.Text;
 
-                // TODO: Implement authentication logic
-                // For now, just show a placeholder message
-                ShowMessage("Login functionality to be implemented", "alert-info");
+                // Call the API
+                var api = new userAPI.UserAPI();
+                {
+                    DataTable dt = api.AdminLogin(email, password);
+                    if (dt.Rows.Count > 0)
+                    {
+                        Session["UserId"] = dt.Rows[0]["UserId"];
+                        Session["FullName"] = dt.Rows[0]["FullName"];
+                        Session["Email"] = dt.Rows[0]["Email"];
+                        Session["RoleId"] = dt.Rows[0]["RoleId"];
+
+                        Response.Redirect("~/Admin/Dashboard.aspx"); 
+                    }
+                    else
+                    {
+                        ShowMessage("Invalid email or password. Please try again.");
+                    }
+                }
+            }
+            catch (SoapException soapEx)
+            {
+                ShowMessage("A server error occurred: " + soapEx.Message);
             }
             catch (Exception ex)
             {
-                ShowMessage("An error occurred during login: " + ex.Message, "alert-danger");
+                ShowMessage("An error occurred during login: " + ex.Message);
             }
         }
+
 
         protected void lnkForgotPassword_Click(object sender, EventArgs e)
         {

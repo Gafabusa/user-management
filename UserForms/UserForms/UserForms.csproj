@@ -188,10 +188,10 @@
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
-    <Content Include="Web References\userAPI\Reference.map">
+    <None Include="Web References\userAPI\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
+    </None>
     <None Include="Web References\userAPI\UserAPI.wsdl" />
   </ItemGroup>
   <ItemGroup>

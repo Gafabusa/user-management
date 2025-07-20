@@ -1,12 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data;
+
 
 namespace UserClassLibrary.ControlObjects
 {
-    internal class BusinessLogic
+    public class BusinessLogic
     {
+        private readonly DatabaseHelper dbHelper;
+
+        public BusinessLogic()
+        {
+            dbHelper = new DatabaseHelper();
+        }
+        //authenticate admin
+        public DataTable AdminLogin(string email, string password)
+        {
+            object[] parameters = { email, password };
+            return dbHelper.ExecuteDataTable("sp_AdminLogin", parameters);
+        }
+
     }
 }

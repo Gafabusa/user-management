@@ -51,8 +51,6 @@ namespace UserForms.Login
                 ShowMessage("An error occurred during login: " + ex.Message);
             }
         }
-
-
         protected void lnkForgotPassword_Click(object sender, EventArgs e)
         {
             Response.Redirect("ForgotPassword.aspx");

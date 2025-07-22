@@ -24,6 +24,26 @@ namespace UserManagementAPI
         {
             return businessLogic.AdminLogin(email, password);
         }
+        //create user
+        [WebMethod]
+        public DataTable CreateUser(string fullName, string email, string hashedPassword, int roleId, int createdByUserId)
+        {
+            return businessLogic.CreateUser(fullName, email, hashedPassword, roleId, createdByUserId);
+        }
+        //get all roles
+        [WebMethod]
+        public DataTable GetAllRoles()
+        {
+            return businessLogic.GetAllRoles();
+        }
+
+        //change password
+        [WebMethod]
+        public void ChangePassword(int userId, string newHashedPassword)
+        {
+           businessLogic.ChangePassword(userId,newHashedPassword);
+        }
+
 
     }
 }

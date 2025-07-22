@@ -61,7 +61,7 @@
      <a class="nav-link text-white rounded bg-primary bg-opacity-10 text-primary fw-semibold" href="~/Admin/Dashboard.aspx" runat="server">Dashboard</a>
                     </li>
                      <li class="nav-item mb-2">
-    <a class="nav-link text-white rounded hover-bg-light" href="~/Admin/Users/UserManagement.aspx" runat="server">Users</a>
+    <a class="nav-link text-white rounded hover-bg-light" href="~/Admin/Users/CreateUser.aspx" runat="server">Users</a>
                                 </li>
                       <li class="nav-item mb-2">
     <a class="nav-link text-white rounded hover-bg-light" href="~/Admin/Roles/RoleManagement.aspx" runat="server">Roles</a>

@@ -11,7 +11,7 @@ namespace UserForms.Admin.Users
 {
 
 
-    public partial class UserManagement
+    public partial class CreateUser
     {
 
         /// <summary>
@@ -24,13 +24,22 @@ namespace UserForms.Admin.Users
         protected global::System.Web.UI.WebControls.Panel pnlLanding;
 
         /// <summary>
-        /// modalTitle control.
+        /// btnShowCreateUserForm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl modalTitle;
+        protected global::System.Web.UI.WebControls.Button btnShowCreateUserForm;
+
+        /// <summary>
+        /// pnlCreateUserForm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlCreateUserForm;
 
         /// <summary>
         /// pnlAlert control.
@@ -51,40 +60,31 @@ namespace UserForms.Admin.Users
         protected global::System.Web.UI.WebControls.Label lblMessage;
 
         /// <summary>
-        /// hfEditingVendorId control.
+        /// lblFullName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hfEditingVendorId;
+        protected global::System.Web.UI.WebControls.Label lblFullName;
 
         /// <summary>
-        /// lblVendorName control.
+        /// txtFullName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblVendorName;
+        protected global::System.Web.UI.WebControls.TextBox txtFullName;
 
         /// <summary>
-        /// txtVendorName control.
+        /// rfvFullName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtVendorName;
-
-        /// <summary>
-        /// rfvVendorName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvVendorName;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvFullName;
 
         /// <summary>
         /// lblEmail control.
@@ -114,15 +114,6 @@ namespace UserForms.Admin.Users
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEmail;
 
         /// <summary>
-        /// revEmail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator revEmail;
-
-        /// <summary>
         /// lblPhoneNumber control.
         /// </summary>
         /// <remarks>
@@ -150,76 +141,40 @@ namespace UserForms.Admin.Users
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPhoneNumber;
 
         /// <summary>
-        /// revPhoneNumber control.
+        /// lblRole control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator revPhoneNumber;
+        protected global::System.Web.UI.WebControls.Label lblRole;
 
         /// <summary>
-        /// lblPassword control.
+        /// ddlRole control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPassword;
+        protected global::System.Web.UI.WebControls.DropDownList ddlRole;
 
         /// <summary>
-        /// txtPassword control.
+        /// rfvRole control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPassword;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvRole;
 
         /// <summary>
-        /// rfvPassword control.
+        /// btnCancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPassword;
-
-        /// <summary>
-        /// lblIsApproved control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIsApproved;
-
-        /// <summary>
-        /// ddlIsApproved control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlIsApproved;
-
-        /// <summary>
-        /// lblIsActive control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIsActive;
-
-        /// <summary>
-        /// ddlIsActive control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlIsActive;
+        protected global::System.Web.UI.WebControls.Button btnCancel;
 
         /// <summary>
         /// btnSave control.
@@ -229,14 +184,5 @@ namespace UserForms.Admin.Users
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSave;
-
-        /// <summary>
-        /// gvVendors control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvVendors;
     }
 }

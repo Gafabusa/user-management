@@ -103,7 +103,7 @@
     <Content Include="Admin\Dashboard.aspx" />
     <Content Include="Admin\Reports\ReportManagement.aspx" />
     <Content Include="Admin\Roles\RoleManagement.aspx" />
-    <Content Include="Admin\Users\UserManagement.aspx" />
+    <Content Include="Admin\Users\CreateUser.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -122,6 +122,7 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
+    <Content Include="Login\ChangePassword.aspx" />
     <Content Include="Login\ForgotPassword.aspx" />
     <Content Include="Login\Login.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -217,14 +218,22 @@
     <Compile Include="Admin\Roles\RoleManagement.aspx.designer.cs">
       <DependentUpon>RoleManagement.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Users\UserManagement.aspx.cs">
-      <DependentUpon>UserManagement.aspx</DependentUpon>
+    <Compile Include="Admin\Users\CreateUser.aspx.cs">
+      <DependentUpon>CreateUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\Users\UserManagement.aspx.designer.cs">
-      <DependentUpon>UserManagement.aspx</DependentUpon>
+    <Compile Include="Admin\Users\CreateUser.aspx.designer.cs">
+      <DependentUpon>CreateUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Login\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Login\ForgotPassword.aspx.cs">
       <DependentUpon>ForgotPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

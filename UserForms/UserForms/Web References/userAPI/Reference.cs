@@ -24,13 +24,19 @@ namespace UserForms.userAPI {
     
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Web.Services.WebServiceBindingAttribute(Name="UserAPISoap", Namespace="http://tempuri.org/")]
     public partial class UserAPI : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
         private System.Threading.SendOrPostCallback AdminLoginOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback CreateUserOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetAllRolesOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ChangePasswordOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -74,6 +80,15 @@ namespace UserForms.userAPI {
         public event AdminLoginCompletedEventHandler AdminLoginCompleted;
         
         /// <remarks/>
+        public event CreateUserCompletedEventHandler CreateUserCompleted;
+        
+        /// <remarks/>
+        public event GetAllRolesCompletedEventHandler GetAllRolesCompleted;
+        
+        /// <remarks/>
+        public event ChangePasswordCompletedEventHandler ChangePasswordCompleted;
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AdminLogin", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public System.Data.DataTable AdminLogin(string email, string password) {
             object[] results = this.Invoke("AdminLogin", new object[] {
@@ -105,6 +120,100 @@ namespace UserForms.userAPI {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/CreateUser", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataTable CreateUser(string fullName, string email, string hashedPassword, int roleId, int createdByUserId) {
+            object[] results = this.Invoke("CreateUser", new object[] {
+                        fullName,
+                        email,
+                        hashedPassword,
+                        roleId,
+                        createdByUserId});
+            return ((System.Data.DataTable)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void CreateUserAsync(string fullName, string email, string hashedPassword, int roleId, int createdByUserId) {
+            this.CreateUserAsync(fullName, email, hashedPassword, roleId, createdByUserId, null);
+        }
+        
+        /// <remarks/>
+        public void CreateUserAsync(string fullName, string email, string hashedPassword, int roleId, int createdByUserId, object userState) {
+            if ((this.CreateUserOperationCompleted == null)) {
+                this.CreateUserOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCreateUserOperationCompleted);
+            }
+            this.InvokeAsync("CreateUser", new object[] {
+                        fullName,
+                        email,
+                        hashedPassword,
+                        roleId,
+                        createdByUserId}, this.CreateUserOperationCompleted, userState);
+        }
+        
+        private void OnCreateUserOperationCompleted(object arg) {
+            if ((this.CreateUserCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.CreateUserCompleted(this, new CreateUserCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetAllRoles", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataTable GetAllRoles() {
+            object[] results = this.Invoke("GetAllRoles", new object[0]);
+            return ((System.Data.DataTable)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetAllRolesAsync() {
+            this.GetAllRolesAsync(null);
+        }
+        
+        /// <remarks/>
+        public void GetAllRolesAsync(object userState) {
+            if ((this.GetAllRolesOperationCompleted == null)) {
+                this.GetAllRolesOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetAllRolesOperationCompleted);
+            }
+            this.InvokeAsync("GetAllRoles", new object[0], this.GetAllRolesOperationCompleted, userState);
+        }
+        
+        private void OnGetAllRolesOperationCompleted(object arg) {
+            if ((this.GetAllRolesCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetAllRolesCompleted(this, new GetAllRolesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ChangePassword", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void ChangePassword(int userId, string newHashedPassword) {
+            this.Invoke("ChangePassword", new object[] {
+                        userId,
+                        newHashedPassword});
+        }
+        
+        /// <remarks/>
+        public void ChangePasswordAsync(int userId, string newHashedPassword) {
+            this.ChangePasswordAsync(userId, newHashedPassword, null);
+        }
+        
+        /// <remarks/>
+        public void ChangePasswordAsync(int userId, string newHashedPassword, object userState) {
+            if ((this.ChangePasswordOperationCompleted == null)) {
+                this.ChangePasswordOperationCompleted = new System.Threading.SendOrPostCallback(this.OnChangePasswordOperationCompleted);
+            }
+            this.InvokeAsync("ChangePassword", new object[] {
+                        userId,
+                        newHashedPassword}, this.ChangePasswordOperationCompleted, userState);
+        }
+        
+        private void OnChangePasswordOperationCompleted(object arg) {
+            if ((this.ChangePasswordCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ChangePasswordCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -124,11 +233,11 @@ namespace UserForms.userAPI {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void AdminLoginCompletedEventHandler(object sender, AdminLoginCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class AdminLoginCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -148,6 +257,62 @@ namespace UserForms.userAPI {
             }
         }
     }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void CreateUserCompletedEventHandler(object sender, CreateUserCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class CreateUserCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal CreateUserCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataTable Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataTable)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void GetAllRolesCompletedEventHandler(object sender, GetAllRolesCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetAllRolesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetAllRolesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataTable Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataTable)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void ChangePasswordCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
 }
 
 #pragma warning restore 1591

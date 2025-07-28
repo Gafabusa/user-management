@@ -1,11 +1,14 @@
 ﻿using System;
+using System.Configuration;
 using System.Data;
+using System.Net;
+using System.Net.Mail;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using UserForms;
 using UserForms.userAPI;
-using System.Security.Cryptography;
-using System.Text;
 
 namespace UserForms.Admin.Users
 {
@@ -172,17 +175,18 @@ namespace UserForms.Admin.Users
 
             try
             {
-                System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage();
+                string fromEmail = ConfigurationManager.AppSettings["EmailAddress"];
+                string emailPassword = ConfigurationManager.AppSettings["EmailPassword"];
+
+                MailMessage mail = new MailMessage();
                 mail.To.Add(toEmail);
                 mail.Subject = subject;
                 mail.Body = body;
                 mail.IsBodyHtml = true;
-                mail.From = new System.Net.Mail.MailAddress("youremail@example.com");
+                mail.From = new MailAddress(fromEmail);
 
-                System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient();
-                smtp.Host = "smtp.yourserver.com"; 
-                smtp.Port = 587; 
-                smtp.Credentials = new System.Net.NetworkCredential("youremail@example.com", "yourpassword"); 
+                SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+                smtp.Credentials = new NetworkCredential(fromEmail, emailPassword);
                 smtp.EnableSsl = true;
 
                 smtp.Send(mail);
@@ -192,6 +196,7 @@ namespace UserForms.Admin.Users
                 ShowAlert("Failed to send email: " + ex.Message, "danger");
             }
         }
+
 
     }
 }
